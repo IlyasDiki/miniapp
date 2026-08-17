@@ -70,7 +70,7 @@ function DateSelection({
         </div>
 
         <button
-          type="submit"
+          className="primary-button" type="submit"
           disabled={!selectedDate}
         >
           Lanjutkan

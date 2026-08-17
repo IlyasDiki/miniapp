@@ -159,16 +159,13 @@ function SessionDetail({
     // ====================================
 
     const newSession = {
+      sessionNumber: sessions.length + 1,
       date: selectedDate,
-
       startTime: startTime,
-
       endTime: endTime,
-
       location: isOnline
         ? 'Online'
         : location.trim(),
-
       material: material.trim()
     }
 
@@ -303,7 +300,7 @@ function SessionDetail({
 
         {/* TOMBOL */}
 
-        <button type="submit">
+        <button className="primary-button" type="submit">
           Simpan Sesi
         </button>
 

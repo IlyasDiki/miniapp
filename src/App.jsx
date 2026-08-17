@@ -4,17 +4,18 @@ import Registration from './screens/Registration'
 import DateSelection from './screens/DateSelection'
 import SessionDetail from './screens/SessionDetail'
 import Summary from './screens/Summary'
+import SessionView from './screens/SessionView'
 
 function App() {
-  const [currentScreen, setCurrentScreen] =
-    useState('registration')
+  const [currentScreen, setCurrentScreen] = useState('registration')
 
   const [student, setStudent] = useState(null)
 
-  const [selectedDate, setSelectedDate] =
-    useState('')
+  const [selectedDate, setSelectedDate] = useState('')
 
   const [sessions, setSessions] = useState([])
+
+  const [selectedSession, setSelectedSession] = useState(null)
 
   return (
     <main className="app">
@@ -50,6 +51,13 @@ function App() {
           <Summary
             student={student}
             sessions={sessions}
+            setCurrentScreen={setCurrentScreen}
+            setSelectedSession={setSelectedSession}
+          />
+        )}
+        {currentScreen === 'session-view' && (
+          <SessionView
+            session={selectedSession}
             setCurrentScreen={setCurrentScreen}
           />
         )}

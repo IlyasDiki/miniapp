@@ -112,7 +112,7 @@ function Registration({ setCurrentScreen, setStudent }) {
           </select>
         </div>
 
-        <button type="submit">
+        <button className="primary-button" type="submit">
           Lanjutkan
         </button>
       </form>

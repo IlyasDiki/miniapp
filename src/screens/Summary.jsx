@@ -3,81 +3,247 @@ import Logo from '../components/Logo'
 function Summary({
   student,
   sessions,
-  setCurrentScreen
+  setCurrentScreen,
+  setSelectedSession
 }) {
+  const totalSessions =
+    Number(student.packageSessions)
+
+  const scheduledSessions =
+    sessions.length
+
   const remainingSessions =
-    Number(student.packageSessions) - sessions.length
+    totalSessions - scheduledSessions
+
+  const allSessionsScheduled =
+    scheduledSessions >= totalSessions
+
+  const formatDate = (dateString) => {
+    const date = new Date(
+      `${dateString}T00:00:00`
+    )
+
+    return date.toLocaleDateString(
+      'id-ID',
+      {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+      }
+    )
+  }
+
+  const handleSessionClick = (session) => {
+    setSelectedSession(session)
+
+    setCurrentScreen('session-view')
+  }
 
   return (
     <div className="screen-card">
+
       <Logo />
-      <h1>Ringkasan</h1>
 
-      <p>
-        Siswa: {student.name}
-      </p>
+      <h1>
+        Ringkasan
+      </h1>
 
-      <p>
-        Program: {student.program}
-      </p>
+      {/* =========================
+          STUDENT INFO
+      ========================= */}
 
-      <p>
-        Paket: {student.packageSessions} sesi
-      </p>
+      <div className="student-summary">
 
-      <p>
-        Durasi: {student.duration} menit
-      </p>
+        <h2>
+          {student.name}
+        </h2>
 
-      <p>
-        Mode belajar: {student.learningMode}
-      </p>
+        <p>
+          {student.program}
+        </p>
 
-      <hr />
+        <div className="student-meta">
 
-      <h2>Sesi yang sudah dijadwalkan</h2>
+          <span>
+            {totalSessions} sesi
+          </span>
 
-      {sessions.map((session, index) => (
-        <div key={index}>
-          <h3>
-            Sesi {index + 1}
-          </h3>
+          <span>
+            {student.duration} menit / sesi
+          </span>
 
-          <p>
-            Tanggal: {session.date}
-          </p>
+          <span>
+            {student.learningMode}
+          </span>
 
-          <p>
-            Jam: {session.startTime} - {session.endTime}
-          </p>
-
-          <p>
-            Tempat: {session.location}
-          </p>
-
-          <p>
-            Materi: {session.material}
-          </p>
-
-          <hr />
         </div>
-      ))}
 
-      <p>
-        Sudah dijadwalkan: {sessions.length} sesi
-      </p>
+      </div>
 
-      <p>
-        Belum dijadwalkan: {remainingSessions} sesi
-      </p>
 
-      {remainingSessions > 0 && (
-        <button
-          onClick={() => setCurrentScreen('date')}
-        >
-          Jadwalkan Sesi Berikutnya
-        </button>
+      {/* =========================
+          PROGRESS
+      ========================= */}
+
+      <div className="progress-section">
+
+        <div className="progress-header">
+
+          <span>
+            Progress jadwal
+          </span>
+
+          <strong>
+            {scheduledSessions} / {totalSessions}
+          </strong>
+
+        </div>
+
+        <div className="progress-bar">
+
+          <div
+            className="progress-fill"
+            style={{
+              width: `${
+                (scheduledSessions /
+                  totalSessions) *
+                100
+              }%`
+            }}
+          />
+
+        </div>
+
+      </div>
+
+
+      {/* =========================
+          SESSION LIST
+      ========================= */}
+
+      {scheduledSessions > 0 && (
+        <div className="session-list">
+
+          <h2>
+            Sesi yang sudah dijadwalkan
+          </h2>
+
+          {sessions.map((session) => (
+
+            <button
+              key={session.sessionNumber}
+              type="button"
+              className="session-card"
+              onClick={() =>
+                handleSessionClick(session)
+              }
+            >
+
+              <div className="session-card-top">
+
+                <span className="session-number">
+                  Sesi {session.sessionNumber}
+                </span>
+
+                <span className="session-arrow">
+                  →
+                </span>
+
+              </div>
+
+              <div className="session-card-date">
+                {formatDate(session.date)}
+              </div>
+
+              <div className="session-card-time">
+                {session.startTime} – {session.endTime}
+              </div>
+
+              <div className="session-card-bottom">
+
+                <span>
+                  {session.location}
+                </span>
+
+                <span>
+                  {session.material}
+                </span>
+
+              </div>
+
+            </button>
+
+          ))}
+
+        </div>
       )}
+
+
+      {/* =========================
+          ALL SESSIONS COMPLETE
+      ========================= */}
+
+      {allSessionsScheduled ? (
+
+        <div className="complete-message">
+
+          <div className="complete-icon">
+            ✓
+          </div>
+
+          <div>
+            <strong>
+              Semua sesi telah dijadwalkan
+            </strong>
+
+            <p>
+              Seluruh sesi dalam paket{' '}
+              {student.name} sudah memiliki
+              jadwal.
+            </p>
+          </div>
+
+        </div>
+
+      ) : (
+
+        <>
+          <div className="schedule-status">
+
+            <div>
+              <strong>
+                {scheduledSessions}
+              </strong>
+
+              <span>
+                Sesi terjadwal
+              </span>
+            </div>
+
+            <div>
+              <strong>
+                {remainingSessions}
+              </strong>
+
+              <span>
+                Sesi belum dijadwalkan
+              </span>
+            </div>
+
+          </div>
+
+          <button
+            className="primary-button" type="button" 
+            onClick={() =>
+              setCurrentScreen('date')
+            }
+          >
+            Jadwalkan Sesi Berikutnya
+          </button>
+        </>
+
+      )}
+
     </div>
   )
 }
