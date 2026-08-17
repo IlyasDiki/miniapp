@@ -1,0 +1,214 @@
+:root {
+  --color-primary: #026C7A;
+  --color-primary-dark: #004153;
+  --color-primary-light: #3BB0BF;
+  --color-blue-soft: #99DFEC;
+  --color-accent: #FBC84F;
+
+  --color-background: #F9FAFD;
+  --color-border: #E3E3E4;
+  --color-text: #242829;
+
+  --color-white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+  min-height: 100vh;
+  padding: 24px 16px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   SCREEN CARD
+========================= */
+
+.screen-card {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 24px;
+
+  border: 1px solid var(--color-border);
+
+  box-shadow:
+    0 4px 16px rgba(0, 65, 83, 0.06);
+}
+
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.screen-card h1 {
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  color: var(--color-primary-dark);
+
+  font-size: 28px;
+}
+
+.screen-card h2 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+
+  color: var(--color-primary-dark);
+}
+
+.screen-card h3 {
+  margin-bottom: 8px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.screen-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.screen-card label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.screen-card input,
+.screen-card select,
+.screen-card textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+
+  background-color: var(--color-white);
+  color: var(--color-text);
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.screen-card input:focus,
+.screen-card select:focus,
+.screen-card textarea:focus {
+  border-color: var(--color-primary);
+
+  box-shadow:
+    0 0 0 3px rgba(2, 108, 122, 0.12);
+}
+
+.screen-card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.screen-card button {
+  width: 100%;
+
+  padding: 13px 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  font-weight: 600;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.screen-card button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.screen-card button:active {
+  transform: scale(0.98);
+}
+
+.screen-card button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error-message {
+  margin: 0 0 16px;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  background-color: #fff1f1;
+  color: #b42318;
+
+  font-size: 14px;
+}
