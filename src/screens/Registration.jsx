@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Logo from '../components/Logo'
 
 function Registration({ setCurrentScreen, setStudent }) {
   const [name, setName] = useState('')
@@ -8,6 +9,7 @@ function Registration({ setCurrentScreen, setStudent }) {
   const [learningMode, setLearningMode] = useState('')
   return (
     <div className="screen-card">
+      <Logo />
       <h1>Pendaftaran</h1>
 
       <p>Silakan isi data siswa untuk memulai penjadwalan.</p>

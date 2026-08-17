@@ -1,16 +1,20 @@
-# React + Vite
+# Cara Menjalankan aplikasi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-Pada halaman pendaftaran harap masukkan semua data yang ada di pendaftaran. Lalu klik lanjutkan
+-Setelah itu anda akan diminta untuk memasukkan tanggal sesi dan bisa dipilih sesuai dengan keinginan kapan anda akan menjalankan Les tersebut.
+-Selanjutnya akan masuk ke halaman detail sesi disini anda akan bisa memilih kapan jam mulainya dan akan terhitung jam selesainya sesuai dengan durasi yang dipilih dari awal.
+-Untuk tempat jika memilih online maka tempat tidak akan bisa di input namun jika sebelumnya memilih tutor datang ke tempat maka bisa diisi sesuai dengan keinginan anda. Dan terakhir bisa isi materi yang ingin anda pelajari. Setelah itu klik simpan sesi
+-Terakhir akan muncul halaman ringkasan dimana pada halaman ini anda akan melihat seluruh sesi yang anda isi sebelumnya. jika anda masih memiliki sesi maka bisa tambahkan kembali dengan klik tombol jadwalkan sesi berikutnya dan input kembali seperti yang anda lakukan sebelumnya.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Keputusan yang saya ambil yang tidak ada di brief dan seharusnya berbeda
 
-## React Compiler
+Keputusan saya tidak banyak saya hanya mengikuti beberapa yang ada di brief namun karena beberapa dari ketentuan yang menurut saya sudah benar dan dengan adanya batasan dan tenggat waktu saya membuatnya benar benar versi paling sederhana. Tentu disini saya juga meminta bantuan AI menanyakan apa saja kekurangan dari aplikasi yang saya buat. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Bagian mana yang dikerjakan oleh AI dan mana yang dikerjakan sendiri
 
-## Expanding the ESLint configuration
+Karena saya belum pernah menyentuh bahasa react sebelumnya jadi saya meminta AI mengerjakan secara keseluruhan aplikasi dari yang dibuat. Tentu dengan mengikuti ketentuan yang diberikan tapi jika ada yang error aplikasinya disitu saya baru akan meminta AI tersebut melakukan perbaikan pada error yang muncul hingga aplikasi bisa berjalan sesuai dengan keinginan saya.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Apa yang belum selesai dan kenapa
+
+Menurut saya untuk aplikasi mini app penjadwalan les ini tentu memerlukan yang namanya database dan lainnya untuk menyimpan data yang ada karena untuk versi yang saya buat ini jika melakukan refresh maka data akan wipe atau hilang semuanya dan harus melakukan input dari awal. Karena adanya batasan juga saya tidak membuat halaman login dan lainnya karena saya membuatnya dari yang paling sederhana menurut saya dan mengikuti ketentuan yang diberikan

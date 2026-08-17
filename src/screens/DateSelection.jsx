@@ -1,3 +1,4 @@
+import Logo from '../components/Logo'
 function DateSelection({
   student,
   selectedDate,
@@ -37,7 +38,7 @@ function DateSelection({
 
   return (
     <div className="screen-card">
-
+      <Logo />
       <h1>
         Pilih Tanggal
       </h1>

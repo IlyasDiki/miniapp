@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Logo from '../components/Logo'
 
 function SessionDetail({
   student,
@@ -194,7 +195,7 @@ function SessionDetail({
 
   return (
     <div className="screen-card">
-
+      <Logo />
       <h1>
         Detail Sesi
       </h1>

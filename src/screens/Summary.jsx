@@ -1,3 +1,5 @@
+import Logo from '../components/Logo'
+
 function Summary({
   student,
   sessions,
@@ -8,6 +10,7 @@ function Summary({
 
   return (
     <div className="screen-card">
+      <Logo />
       <h1>Ringkasan</h1>
 
       <p>
