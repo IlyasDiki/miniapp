@@ -1,4 +1,4 @@
-import logo from '../assets/edufio.jpg'
+import logo from '../assets/Edufio.jpg'
 
 function Logo() {
   return (
